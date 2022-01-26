@@ -11,27 +11,14 @@ test_data_paths = []
 test_predictions = []
 
 if len(sys.argv)==1:
-    directory = '../development data'
+    directory = 'development data'
 else:
     directory = sys.argv[1]
 remove = ",.'-()/"
 pattern = r"[{}]".format(remove)
 
-stop_words = {"am", "pm", "i", "me", "my", "myself", "we", "our", "ours", 
-"ourselves", "you", "your", "yours", "yourself", "yourselves", 
-"he", "him", "his", "himself", "she", "her", "hers", "herself", 
-"it", "its", "itself", "they", "them", "their", "theirs", 
-"themselves", "what", "which", "who", "whom", "this", "that", 
-"these", "those", "am", "is", "are", "was", "were", "be", "been", 
-"being", "have", "has", "had", "having", "do", "does", "did", "doing", 
-"a", "an", "the", "and", "but", "if", "or", "because", "as", "until", 
-"while", "of", "at", "by", "for", "with", "about", "against", "between", 
-"into", "through", "during", "before", "after", "above", "below", "to", 
-"from", "up", "down", "in", "out", "on", "off", "over", "under", "again", 
-"further", "then", "once", "here", "there", "when", "where", "why", "how",
-"all", "any", "both", "each", "few", "more", "most", "other", "some", "such", 
-"only", "own", "same", "so", "than", "too", "very", "s", "t", "can", "will", 
-"just", "don", "should", "now"}
+stop_words = {'and', 'down', 'it', 'of', 'will', 'than', 'all', 'ourselves', 'did', 'most', 'being',
+'was', 'on', 'were', 'him', 'such', 'which', 'this', 'at', 'himself', 'for', 'yourself', 'have', 'until', 'be', 'why', 'he', 'during', 'now', 'very', 'myself', 'having', 'your', 'these', 'we', 'with', 'its', 'doing', 'only', 'then', 'both', 'me', 'because', 'after', 'to', 'she', 'between', 'theirs', 'before', 'is', 'ours', 'does', 'pm', 'has', 'can', 'yours', 'other', 'a', 'where', 'from', 'out', 'some', 'hers', 'if', 'by', 'just', 'had', 'they', 'under', 'itself', 'how', 'so', 'the', 'again', 'each', 'yourselves', 'but', 'up', 'are', 'when', 'them', 'you', 'further', 'there', 'her', 'own', 'that', 'who', 'few', 'his', 'any', 'below', 'themselves', 'once', 'or', 'been', 'off', 'above', 'about', 'here', 'should', 'herself', 'an', 'same', 'into', 'more', 'whom', 'my', 'through', 'do', 'those', 'against', 'over', 'while', 'our', 'their', 'in', 'am', 'as', 'what'}
 
 temp_path = os.path.join(directory)
 for class1 in os.listdir(temp_path):
@@ -48,7 +35,7 @@ for class1 in os.listdir(temp_path):
 							test_data_paths.append(path)
 							txt = open(path).read()
 							txt = re.sub(pattern, "", txt)
-							#txt = txt.lower()
+							txt = txt.lower()
 							txt = txt.split()
 							txt = [i for i in txt if i not in stop_words]
 							txt = [re.sub('(ing|ed|al)$', '', w) for w in txt]
