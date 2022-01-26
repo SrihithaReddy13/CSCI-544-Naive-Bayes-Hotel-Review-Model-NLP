@@ -11,7 +11,7 @@ test_data_paths = []
 test_predictions = []
 
 if len(sys.argv)==1:
-    directory = 'development data'
+    directory = '../development data'
 else:
     directory = sys.argv[1]
 remove = ",.'-()/"

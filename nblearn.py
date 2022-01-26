@@ -10,7 +10,7 @@ train_results=[]
 class_count = {'00':0,'01':0,'10':0,'11':0}
 
 if len(sys.argv)==1:
-    directory = 'training data'
+    directory = '../training data'
 else:
     directory = sys.argv[1]
 remove =  ",.'-()/"
